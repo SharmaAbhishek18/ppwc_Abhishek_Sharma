@@ -1,0 +1,8 @@
+Logic:
+
+1.The program reads an integer from the user.
+2.It processes each digit of the number(using while loop):
+3.If a digit is 0, it is replaced with 1.
+4.If a digit is 1, it is replaced with 0.
+5.The modified number is formed by replacing all 0 and 1 digits with their corresponding values.
+6.Finally, the new number is displayed.
