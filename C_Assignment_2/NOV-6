@@ -1,0 +1,50 @@
+
+1.While the goto statement can be used to control program flow, it’s generally recommended to useselection structures and repetition control structures. 
+What are the advantages of these of over simple goto statement.
+Ans:
+Selection structures (like if-else) and repetition control structures (like for and while loops) offer significant advantages over the goto statement, including:
+>>>Readability and Maintenance: Code written with selection and repetition structures is generally more readable and 
+maintainable. The flow of the program is clearer and easier to follow, which reduces the likelihood of introducing errors.
+>>>Structure and Organization: These control structures enforce a more structured and organized approach to programming.
+They help avoid the "spaghetti code" effect, where the program's logic becomes tangled and difficult to understand due to multiple jumps.
+
+2.State the purpose of the break statement within a switch case. Can a switch case work without it ?Explain your choice with an example.
+Ans:
+The break statement in a switch case is used to terminate a case and prevent "fall-through" to subsequent cases.
+Without a break, the program continues to execute the next case statements until a break is encountered or the switch statement ends.
+
+Example with Break::
+#include <stdio.h>
+int main() {
+    int num = 2;
+    switch(num) {
+        case 1:
+            printf("Case 1\n");
+            break;
+        case 2:
+            printf("Case 2\n");
+            break;
+        case 3:
+            printf("Case 3\n");
+            break;
+        default:
+            printf("Default case\n");
+    }
+    return 0;
+}
+Example without Break::
+#include <stdio.h>
+int main() {
+    int num = 2;
+    switch(num) {
+        case 1:
+            printf("Case 1\n");
+        case 2:
+            printf("Case 2\n");
+        case 3:
+            printf("Case 3\n");
+        default:
+            printf("Default case\n");
+    }
+    return 0;
+}
