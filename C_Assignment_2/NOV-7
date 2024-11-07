@@ -1,0 +1,82 @@
+Q3.Describe the functions of break and continue statements within loops. Illustrate their applications in various programming contexts.
+
+The break statement is used to exit from a loop prematurely.
+When the break statement is executed, the control flow exits the loop and continues with the statement immediately following the loop. 
+It's useful when you need to terminate the loop based on some condition or event.
+#include <stdio.h>
+
+int main() {
+    for (int i = 0; i < 10; i++) {
+        if (i == 5) {
+            break;  // Exit the loop when i is 5
+        }
+        printf("%d\n", i);
+    }
+    return 0;
+}
+//CONTINUE STATEMENT
+The continue statement is used to skip the current iteration of the loop and proceed to the next iteration.
+When continue is executed, the rest of the code inside the loop is skipped for the current iteration.
+#include <stdio.h>
+
+int main() {
+    for (int i = 0; i < 10; i++) {
+        if (i % 2 == 0) {
+            continue;  // Skip the iteration if i is even
+        }
+        printf("%d\n", i);
+    }
+    return 0;
+}
+Q4.Under what circumstances should you employ if-else statements, switch statements, or loops?
+What criteria should be evaluated when selecting the appropriate control flow structure?
+statements are used when you have a small number of conditions to evaluate. They are best suited for situations where you need to make decisions based on specific criteria.
+
+Use if-else statements when:
+You have a small number of conditions to check.
+The conditions are not mutually exclusive.
+The conditions involve complex expressions.
+#include <stdio.h>
+
+int main() {
+    int number = 10;
+    
+    if (number > 0) {
+        printf("Positive number\n");
+    } else if (number < 0) {
+        printf("Negative number\n");
+    } else {
+        printf("Zero\n");
+    }
+
+    return 0;
+}
+switch statements are used when you have multiple possible values for a single variable and want to execute different code for each value.
+They are more readable and efficient for handling multiple discrete cases.
+#include <stdio.h>
+
+int main() {
+    char grade = 'B';
+    
+    switch (grade) {
+        case 'A':
+            printf("Excellent!\n");
+            break;
+        case 'B':
+            printf("Good job!\n");
+            break;
+        case 'C':
+            printf("Well done\n");
+            break;
+        case 'D':
+            printf("You passed\n");
+            break;
+        case 'F':
+            printf("Better try again\n");
+            break;
+        default:
+            printf("Invalid grade\n");
+    }
+
+    return 0;
+}
