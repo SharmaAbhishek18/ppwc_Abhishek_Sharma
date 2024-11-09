@@ -1,0 +1,94 @@
+  Q6.Write a program that determines the day number (1 to 366) in a year for a date that is provided as
+input data. As an example, January 1, 1994, is day 1. December 31, 1993, is day 365. December 31,
+1996, is day 366, since 1996 is a leap year. A year is a leap year if it is divisible by four, except that
+any year divisible by 100 is a leap year only if it is divisible by 400. Your program should accept the
+month, day, and year as integers. Include a function leap that returns 1 if called with a leap year, 0
+otherwise
+
+#include <stdio.h>
+
+// Function to check if a year is a leap year
+int leap(int year) {
+    if (year % 400 == 0) return 1;
+    if (year % 100 == 0) return 0;
+    if (year % 4 == 0) return 1;
+    return 0;
+}
+
+// Function to calculate the day number in the year
+int dayOfYear(int day, int month, int year) {
+    int daysInMonths[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    if (leap(year)) {
+        daysInMonths[1] = 29; // February has 29 days in a leap year
+    }
+    
+    int dayNumber = day;
+    for (int i = 0; i < month - 1; i++) {
+        dayNumber += daysInMonths[i];
+    }
+    return dayNumber;
+}
+
+int main() {
+    int day, month, year;
+
+    // Input the date
+    printf("Enter the day: ");
+    scanf("%d", &day);
+    printf("Enter the month: ");
+    scanf("%d", &month);
+    printf("Enter the year: ");
+    scanf("%d", &year);
+
+    // Calculate the day number
+    int result = dayOfYear(day, month, year);
+    printf("The day number for %d/%d/%d is %d\n", day, month, year, result);
+
+    return 0;
+}
+Q7.Write a program to calculate the grade of a student using switch case. The program should ask
+the user about the marks obtained by the student and find the grade according to following rule if
+mark ≥ 95 the grade ‘O’, if 81 ≤ mark ≤ 94 then grade ‘A’, if 71 ≤ mark ≤ 80 then grade ‘B’, if
+61 ≤ mark ≤ 70 then grade ‘C’, if 51 ≤ mark ≤ 60 then grade ‘D’, if 40 ≤ mark ≤ 50 then grade
+‘E’, if mark < 40 then grade ‘F’.
+Output::#include <stdio.h>
+
+int main() {
+    int marks;
+    char grade;
+
+    // Input the marks
+    printf("Enter the marks obtained by the student: ");
+    scanf("%d", &marks);
+
+    // Calculate grade using switch-case
+    switch (marks / 10) {
+        case 10:
+        case 9:
+            grade = 'O';
+            break;
+        case 8:
+            grade = 'A';
+            break;
+        case 7:
+            grade = 'B';
+            break;
+        case 6:
+            grade = 'C';
+            break;
+        case 5:
+            grade = 'D';
+            break;
+        case 4:
+            grade = 'E';
+            break;
+        default:
+            grade = 'F';
+            break;
+    }
+
+    // Output the grade
+    printf("The grade is: %c\n", grade);
+
+    return 0;
+}
