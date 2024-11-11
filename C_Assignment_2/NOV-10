@@ -1,0 +1,62 @@
+Q7.The natural logarithm can be approximated by the following series.Write a program that accepts x as an input through the keyboard and calculates the sum of first nine
+terms of this series.
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+  double x, sum = 0;
+  int i;
+
+  printf("Enter the value of x: ");
+  scanf("%lf", &x);
+
+  for (i = 1; i <= 9; i++) {
+    sum += pow(-1, i + 1) * pow((x - 1) / x, i) / i;
+  }
+
+  printf("The sum of the first nine terms of the series is: %lf\n", sum);
+
+  return 0;
+}
+
+
+
+
+
+8.
+#include <stdio.h>
+
+int main() {
+  char ch;
+  int i, j, k, n;
+
+  printf("Enter the choice of the character : ");
+  scanf("%c", &ch);
+
+
+  if (ch >= 'A' && ch <= 'Z') {
+    n = ch - 'A' + 1;
+  } else {
+    printf("Invalid character input.\n");
+    return 1;
+  }
+
+ 
+  for (i = 1; i <= n; i++) {
+   
+    for (j = 'A'; j <= 'A' + i - 1; j++) {
+      printf("%c", j);
+    }
+    // Print spaces
+    for (k = 1; k <= 2 * (n - i); k++) {
+      printf(" ");
+    }
+ 
+    for (j = 'A' + i - 1; j >= 'A'; j--) {
+      printf("%c", j);
+    }
+    printf("\n");
+  }
+
+  return 0;
+}
